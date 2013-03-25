@@ -23,7 +23,7 @@ class DeviceManager(models.Manager):
             batch_reg_ids = []
             for device in device_batch:
                 batch_reg_ids.append(device.reg_id)
-            send_gcm_message(api_key=settings.GCM_APIKEY, reg_ids=batch_reg_ids, data=data, collapse_key="message")
+            send_gcm_message(api_key=settings.GCM_APIKEY, reg_ids=batch_reg_ids, data=data)
 
 
 class Group(models.Model):
@@ -50,7 +50,7 @@ class Group(models.Model):
             batch_reg_ids = []
             for device in device_batch:
                 batch_reg_ids.append(device.reg_id)
-            send_gcm_message(api_key=settings.GCM_APIKEY, reg_ids=batch_reg_ids, data=data, collapse_key="message")
+            send_gcm_message(api_key=settings.GCM_APIKEY, reg_ids=batch_reg_ids, data=data)
 
     def __unicode__(self):
         return self.name
@@ -92,4 +92,4 @@ class Device(models.Model):
         if article_id is not None:
             data['article_id'] = article_id
 
-        return send_gcm_message(api_key=settings.GCM_APIKEY, reg_ids=[self.reg_id], data=data, collapse_key="message")
+        return send_gcm_message(api_key=settings.GCM_APIKEY, reg_ids=[self.reg_id], data=data)
