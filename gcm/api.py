@@ -2,8 +2,12 @@
 import urllib
 import urllib2
 import json
+import random
 
 def send_gcm_message(api_key, reg_ids, data, collapse_key=None):
+
+    if not collapse_key:
+        collapse_key = str(random.randint(1000,9999))
 
     values = {
         "registration_ids": reg_ids,
