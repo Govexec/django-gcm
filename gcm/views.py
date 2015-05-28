@@ -2,7 +2,6 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic.simple import direct_to_template
 from gcm.models import Device, Group
 
 @csrf_exempt
